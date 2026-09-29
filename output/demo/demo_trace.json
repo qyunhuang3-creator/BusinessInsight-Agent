@@ -1,0 +1,351 @@
+{
+  "mode": "offline",
+  "question": "Why did Product GMV decline, and what were the main drivers?",
+  "stages": [
+    {
+      "stage": "Business Question",
+      "origin": "offline",
+      "detail": "Why did Product GMV decline, and what were the main drivers?"
+    },
+    {
+      "stage": "Data Inspection",
+      "origin": "saved evidence replay",
+      "detail": "Existing data quality/coverage checks; no fresh profiling."
+    },
+    {
+      "stage": "Metric Analysis",
+      "origin": "saved evidence replay",
+      "detail": "Product GMV / valid-item Order Volume / AOV; no new calculation."
+    },
+    {
+      "stage": "Anomaly Detection",
+      "origin": "saved evidence replay",
+      "detail": "Existing comparable-period anomaly selection."
+    },
+    {
+      "stage": "Root Cause Analysis",
+      "origin": "saved evidence replay",
+      "detail": "Existing symmetric decomposition, category/state/seller attribution and drill-down."
+    },
+    {
+      "stage": "Evidence Validation",
+      "origin": "deterministic validation",
+      "detail": "Validated 13 evidence records against source fields."
+    },
+    {
+      "stage": "Final Report",
+      "origin": "deterministic",
+      "detail": "output/reports/agent_business_report.md"
+    }
+  ],
+  "evidence_references": [
+    {
+      "id": "gmv",
+      "source": "output/reports/gmv_ground_truth_summary.json",
+      "fields": {
+        "previous_month": [
+          "previous_month"
+        ],
+        "current_month": [
+          "current_month"
+        ],
+        "previous_gmv": [
+          "previous_gmv"
+        ],
+        "current_gmv": [
+          "current_gmv"
+        ],
+        "gmv_change": [
+          "gmv_change"
+        ],
+        "gmv_mom_pct": [
+          "gmv_mom_pct"
+        ]
+      }
+    },
+    {
+      "id": "period",
+      "source": "scripts/demo_business_report.py::example_bundle",
+      "fields": {
+        "anomaly_status": [
+          "anomaly_status"
+        ],
+        "comparable_months": [
+          "comparable_months"
+        ]
+      }
+    },
+    {
+      "id": "orders",
+      "source": "output/reports/gmv_ground_truth_summary.json",
+      "fields": {
+        "previous_orders": [
+          "previous_orders"
+        ],
+        "current_orders": [
+          "current_orders"
+        ],
+        "order_mom_pct": [
+          "order_mom_pct"
+        ]
+      }
+    },
+    {
+      "id": "aov",
+      "source": "output/reports/gmv_ground_truth_summary.json",
+      "fields": {
+        "previous_aov": [
+          "previous_aov"
+        ],
+        "current_aov": [
+          "current_aov"
+        ],
+        "aov_mom_pct": [
+          "aov_mom_pct"
+        ]
+      }
+    },
+    {
+      "id": "changes",
+      "source": "scripts/demo_business_report.py::example_bundle",
+      "fields": {
+        "order_change": [
+          "order_change"
+        ],
+        "aov_change": [
+          "aov_change"
+        ]
+      }
+    },
+    {
+      "id": "volume",
+      "source": "output/reports/gmv_ground_truth_summary.json",
+      "fields": {
+        "volume_effect": [
+          "volume_effect"
+        ],
+        "volume_contribution_pct": [
+          "volume_contribution_pct"
+        ]
+      }
+    },
+    {
+      "id": "aov_effect",
+      "source": "output/reports/gmv_ground_truth_summary.json",
+      "fields": {
+        "aov_effect": [
+          "aov_effect"
+        ],
+        "aov_contribution_pct": [
+          "aov_contribution_pct"
+        ]
+      }
+    },
+    {
+      "id": "driver",
+      "source": "scripts/demo_business_report.py::example_bundle",
+      "fields": {
+        "main_driver": [
+          "main_driver"
+        ]
+      }
+    },
+    {
+      "id": "top_product_category",
+      "source": "output/reports/gmv_ground_truth_summary.json",
+      "fields": {
+        "member": [
+          "top_dimensions",
+          "product_category",
+          "member"
+        ],
+        "previous_gmv": [
+          "top_dimensions",
+          "product_category",
+          "previous_gmv"
+        ],
+        "current_gmv": [
+          "top_dimensions",
+          "product_category",
+          "current_gmv"
+        ],
+        "absolute_change": [
+          "top_dimensions",
+          "product_category",
+          "absolute_change"
+        ],
+        "growth_rate_pct": [
+          "top_dimensions",
+          "product_category",
+          "growth_rate_pct"
+        ],
+        "contribution_to_total_decline_pct": [
+          "top_dimensions",
+          "product_category",
+          "contribution_to_total_decline_pct"
+        ]
+      }
+    },
+    {
+      "id": "top_customer_state",
+      "source": "output/reports/gmv_ground_truth_summary.json",
+      "fields": {
+        "member": [
+          "top_dimensions",
+          "customer_state",
+          "member"
+        ],
+        "previous_gmv": [
+          "top_dimensions",
+          "customer_state",
+          "previous_gmv"
+        ],
+        "current_gmv": [
+          "top_dimensions",
+          "customer_state",
+          "current_gmv"
+        ],
+        "absolute_change": [
+          "top_dimensions",
+          "customer_state",
+          "absolute_change"
+        ],
+        "growth_rate_pct": [
+          "top_dimensions",
+          "customer_state",
+          "growth_rate_pct"
+        ],
+        "contribution_to_total_decline_pct": [
+          "top_dimensions",
+          "customer_state",
+          "contribution_to_total_decline_pct"
+        ]
+      }
+    },
+    {
+      "id": "top_seller",
+      "source": "output/reports/gmv_ground_truth_summary.json",
+      "fields": {
+        "member": [
+          "top_dimensions",
+          "seller",
+          "member"
+        ],
+        "previous_gmv": [
+          "top_dimensions",
+          "seller",
+          "previous_gmv"
+        ],
+        "current_gmv": [
+          "top_dimensions",
+          "seller",
+          "current_gmv"
+        ],
+        "absolute_change": [
+          "top_dimensions",
+          "seller",
+          "absolute_change"
+        ],
+        "growth_rate_pct": [
+          "top_dimensions",
+          "seller",
+          "growth_rate_pct"
+        ],
+        "contribution_to_total_decline_pct": [
+          "top_dimensions",
+          "seller",
+          "contribution_to_total_decline_pct"
+        ]
+      }
+    },
+    {
+      "id": "drill_product_category",
+      "source": "output/reports/gmv_ground_truth_summary.json",
+      "fields": {
+        "parent_dimension": [
+          "drill_top",
+          "product_category",
+          "parent_dimension"
+        ],
+        "parent_member": [
+          "drill_top",
+          "product_category",
+          "parent_member"
+        ],
+        "member": [
+          "drill_top",
+          "product_category",
+          "member"
+        ],
+        "previous_gmv": [
+          "drill_top",
+          "product_category",
+          "previous_gmv"
+        ],
+        "current_gmv": [
+          "drill_top",
+          "product_category",
+          "current_gmv"
+        ],
+        "absolute_change": [
+          "drill_top",
+          "product_category",
+          "absolute_change"
+        ],
+        "contribution_to_parent_decline_pct": [
+          "drill_top",
+          "product_category",
+          "contribution_to_parent_decline_pct"
+        ]
+      }
+    },
+    {
+      "id": "drill_seller",
+      "source": "output/reports/gmv_ground_truth_summary.json",
+      "fields": {
+        "parent_dimension": [
+          "drill_top",
+          "seller",
+          "parent_dimension"
+        ],
+        "parent_member": [
+          "drill_top",
+          "seller",
+          "parent_member"
+        ],
+        "member": [
+          "drill_top",
+          "seller",
+          "member"
+        ],
+        "previous_gmv": [
+          "drill_top",
+          "seller",
+          "previous_gmv"
+        ],
+        "current_gmv": [
+          "drill_top",
+          "seller",
+          "current_gmv"
+        ],
+        "absolute_change": [
+          "drill_top",
+          "seller",
+          "absolute_change"
+        ],
+        "contribution_to_parent_decline_pct": [
+          "drill_top",
+          "seller",
+          "contribution_to_parent_decline_pct"
+        ]
+      }
+    }
+  ],
+  "fallback_used": false,
+  "report_path": "output/reports/agent_business_report.md",
+  "tableau_path": "output/tableau/BusinessInsight_Dashboard.twb",
+  "completion_status": "completed_replay",
+  "api_calls": 0,
+  "tableau_available": true,
+  "result": "Selected Period: 2017-11 → 2017-12\nProduct GMV: 1,010,271.37 → 743,914.17\nMoM: -26.36%\nPrimary Metric Driver: Order Volume\nContribution: 91.87%\nLargest Category Contributor: cama_mesa_banho\nContribution: 14.61%\nLargest State Contributor: SP\nContribution: 29.85%\nLargest Seller Contributor: 7e93a43ef30c4f03f38b393420bc753a\nContribution: 7.28%"
+}
