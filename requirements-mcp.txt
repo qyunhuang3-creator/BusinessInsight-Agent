@@ -1,0 +1,2 @@
+# Optional MCP integration; no CLI extras or Agent framework.
+mcp==1.30.0

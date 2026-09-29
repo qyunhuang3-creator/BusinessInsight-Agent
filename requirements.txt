@@ -1,0 +1,4 @@
+# -*- coding: utf-8 -*-
+# 基础数据分析与可视化依赖；暂不引入 Agent 框架。
+pandas>=2.2,<3.0
+matplotlib>=3.8,<4.0
